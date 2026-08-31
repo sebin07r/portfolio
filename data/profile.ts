@@ -79,7 +79,8 @@ export const resume = {
 
 /** Used for SEO / Open Graph. Update `url` after the first Vercel deploy. */
 export const site = {
-  url: 'https://sebin-sunny.vercel.app',
+  /** Live URL. Update this if the project is renamed or a custom domain is added. */
+  url: 'https://portfolio-eight-pi-slg7wlo0ge.vercel.app',
   title: 'Sebin Sunny - AI & Backend Developer',
   description:
     'Portfolio of Sebin Sunny, a Computer Science graduate building AI-powered applications end to end with Python, FastAPI, LangGraph, and RAG.',
