@@ -50,8 +50,7 @@ export const contact = {
   email: 'sebins322003@gmail.com',
   emailHref: 'mailto:sebins322003@gmail.com',
   github: 'https://github.com/sebin07r' as string | null,
-  /** TODO: replace with the real profile URL. `null` hides the link entirely. */
-  linkedin: null as string | null,
+  linkedin: 'https://www.linkedin.com/in/8405gjj7y4n8ve/' as string | null,
 };
 
 /**
