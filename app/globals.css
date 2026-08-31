@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --nav-height: 4rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Keep anchored sections clear of the sticky navigation bar. */
+    scroll-padding-top: calc(var(--nav-height) + 1.5rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-night-950 text-slate-300 antialiased;
+    /* Deep navy -> midnight blue gradient foundation. */
+    background-image: linear-gradient(180deg, #020617 0%, #07152f 45%, #0b2447 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Visible, consistent keyboard focus everywhere. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-400 ring-offset-2 ring-offset-night-950;
+    border-radius: 0.375rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-slate-50;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: rgba(34, 211, 238, 0.3);
+    color: #f8fafc;
+  }
+}
+
+@layer components {
+  /* Glass card: thin border, controlled shadow, subtle inner light. */
+  .glass-card {
+    @apply relative rounded-2xl border border-white/10 bg-white/[0.035] shadow-card backdrop-blur-sm;
+  }
+
+  .glass-card-hover {
+    @apply transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-accent-400/40 hover:shadow-glow;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-colors duration-200 min-h-[44px];
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-500 text-night-950 hover:bg-accent-400;
+  }
+
+  .btn-secondary {
+    @apply btn border border-white/15 bg-white/5 text-slate-100 hover:border-accent-400/50 hover:bg-white/10;
+  }
+
+  .btn-ghost {
+    @apply btn text-slate-300 hover:text-accent-400;
+  }
+
+  .btn-disabled {
+    @apply btn cursor-not-allowed border border-white/10 bg-white/[0.02] text-slate-500;
+  }
+
+  .section {
+    @apply mx-auto w-full max-w-6xl px-5 py-20 sm:px-6 md:py-24;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl;
+  }
+
+  .section-eyebrow {
+    @apply mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-400;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-slate-50 via-accent-400 to-violetish-400 bg-clip-text text-transparent;
+  }
+
+  /* Skip link: hidden until focused. */
+  .skip-link {
+    @apply absolute left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-accent-500 px-4 py-2 text-sm font-semibold text-night-950 transition-transform focus:translate-y-0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion: stop every decorative animation and smooth scroll.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
