@@ -55,6 +55,19 @@ export const contact = {
 };
 
 /**
+ * Profile photo, served from `public/images/`.
+ * Set `available: false` to fall back to the initials monogram instead.
+ * The source image is square; it is rendered as a circular portrait.
+ */
+export const photo = {
+  path: '/images/sebin-sunny.jpg',
+  width: 1600,
+  height: 1600,
+  available: true,
+  alt: 'Sebin Sunny',
+};
+
+/**
  * Resume PDF, served from `public/resume/`.
  * Set `available: false` if the file is ever removed - every Download Resume
  * control then renders as a labelled disabled button instead of a 404.
@@ -306,7 +319,6 @@ export const moreProjects: Project[] = [
     categories: ['Generative AI', 'Data Science'],
     github: null,
     demo: null,
-    status: 'Concept / work in progress',
   },
   {
     id: 'pneumonia-cnn',

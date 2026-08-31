@@ -43,6 +43,7 @@ You should not need to open a component to change what the site says.
 | ---------------------------------- | -------------------------------------- |
 | Name, role line, summary, availability | `person`                           |
 | Phone, email, GitHub, LinkedIn     | `contact`                              |
+| Profile photo path and availability | `photo`                               |
 | Resume file path and availability  | `resume`                               |
 | Site URL and SEO description       | `site`                                 |
 | About paragraphs and highlights    | `about`                                |
@@ -71,18 +72,22 @@ Recommendation.
 
 ### Adding links and files
 
-Anything set to `null` renders as a clearly-labelled **disabled state**, never a
-broken or invented link. To fill one in:
+Anything set to `null` is simply **not rendered** - never a broken or invented
+link. To fill one in:
 
 - **GitHub / LinkedIn** - set `contact.github` / `contact.linkedin` to real URLs.
   Until then the social buttons are hidden entirely.
-- **Project repo / demo** - set `github` / `demo` on the project. Until then the
-  card shows disabled "GitHub coming soon" / "Demo coming soon" buttons.
+- **Project repo / demo** - set `github` / `demo` on the project and the button
+  appears on that card. A project with neither URL shows no buttons at all.
 - **Certificates** - set `url` on a certification to add a "View certificate"
   link.
 - **Resume** - drop the PDF at `public/resume/Sebin_Sunny_Resume.pdf`, then set
   `resume.available = true`. Until then every Download Resume control renders as
   a disabled "Resume coming soon" button.
+- **Profile photo** - the portrait at `public/images/sebin-sunny.jpg` is shown
+  as a circular, ring-outlined image in the hero. Replace that file (or point
+  `photo.path` elsewhere and update `photo.width` / `photo.height`) to swap it.
+  Set `photo.available = false` to fall back to the initials monogram.
 
 ---
 
@@ -187,7 +192,7 @@ Every later `git push` to `main` redeploys automatically.
 - The assistant panel is a proper `role="dialog"` with `aria-modal`, a focus
   trap, Escape-to-close, and a live-region transcript.
 - Filters use `aria-pressed` and announce results via a live region.
-- All decorative visuals (circuit background, avatar, icons) are `aria-hidden`.
+- All decorative visuals (neuron-network background, avatar, icons) are `aria-hidden`.
 - `prefers-reduced-motion: reduce` disables every animation, transition, and
   smooth scroll globally - including the hero circuit pulse and Framer Motion
   entrances.
@@ -205,5 +210,6 @@ app/
 components/         One component per section, plus chatbot/
 data/profile.ts     >>> ALL CONTENT LIVES HERE <<<
 lib/                useActiveSection hook
-public/resume/      Drop Sebin_Sunny_Resume.pdf here
+public/images/      Profile photo
+public/resume/      Resume PDF
 ```

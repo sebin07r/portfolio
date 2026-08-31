@@ -46,6 +46,12 @@ const config: Config = {
           '0%': { strokeDashoffset: '120' },
           '100%': { strokeDashoffset: '0' },
         },
+        // A charge travelling the length of a synapse connection.
+        synapse: {
+          '0%': { strokeDashoffset: '320', opacity: '0' },
+          '10%, 90%': { opacity: '1' },
+          '100%': { strokeDashoffset: '0', opacity: '0' },
+        },
         'fade-up': {
           '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
@@ -54,6 +60,7 @@ const config: Config = {
       animation: {
         'pulse-dot': 'pulse-dot 3.2s ease-in-out infinite',
         'trace-line': 'trace-line 4s linear infinite',
+        synapse: 'synapse 9s linear infinite',
         'fade-up': 'fade-up 0.5s ease-out both',
       },
     },

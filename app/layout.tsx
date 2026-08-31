@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { person, site } from '@/data/profile';
 import Analytics from '@/components/Analytics';
-import CircuitBackground from '@/components/CircuitBackground';
+import NeuronBackground from '@/components/NeuronBackground';
 import './globals.css';
 
 const inter = Inter({
@@ -88,7 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="skip-link">
           Skip to main content
         </a>
-        <CircuitBackground />
+        <NeuronBackground />
         {children}
         <Analytics />
       </body>
