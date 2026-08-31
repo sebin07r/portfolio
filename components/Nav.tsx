@@ -36,7 +36,7 @@ export default function Nav() {
         scrolled ? 'border-b border-white/10 bg-night-950/85 backdrop-blur-md' : 'border-b border-transparent'
       }`}
     >
-      <nav aria-label="Primary" className="mx-auto flex h-16 w-full max-w-6xl items-center gap-4 px-5 sm:px-6">
+      <nav aria-label="Primary" className="mx-auto flex h-16 w-full max-w-6xl items-center gap-3 px-5 sm:px-6">
         <a
           href="#home"
           className="flex shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-slate-50"
@@ -50,8 +50,8 @@ export default function Nav() {
           <span className="hidden sm:inline">{person.name}</span>
         </a>
 
-        {/* Desktop links */}
-        <ul className="ml-auto hidden items-center gap-1 xl:flex">
+        {/* Desktop links - one row, evenly spaced, never wrapping */}
+        <ul className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:flex">
           {navItems.map((item) => {
             const isActive = active === item.id;
             return (
@@ -59,18 +59,21 @@ export default function Nav() {
                 <a
                   href={`#${item.id}`}
                   aria-current={isActive ? 'true' : undefined}
-                  className={`rounded-lg px-2.5 py-2 text-[13px] font-medium transition-colors ${
-                    isActive ? 'text-accent-400' : 'text-slate-400 hover:text-slate-100'
+                  title={item.label}
+                  className={`block whitespace-nowrap rounded-lg px-2 py-2 text-[13px] font-medium transition-colors ${
+                    isActive
+                      ? 'bg-accent-500/10 text-accent-400'
+                      : 'text-slate-400 hover:text-slate-100'
                   }`}
                 >
-                  {item.label}
+                  {item.short}
                 </a>
               </li>
             );
           })}
         </ul>
 
-        <div className="ml-auto flex items-center gap-2 xl:ml-3">
+        <div className="ml-auto flex shrink-0 items-center gap-2 xl:ml-0">
           <ResumeButton variant="compact" className="hidden sm:inline-flex" />
           <button
             type="button"

@@ -468,17 +468,22 @@ export const certifications: Certification[] = [
 /* Navigation                                                                 */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * `label` is the full name, used in the mobile menu and the footer.
+ * `short` is what the desktop bar shows - the long titles are abbreviated there
+ * so all ten items sit on one tidy row instead of overflowing.
+ */
 export const navItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'featured-projects', label: 'Featured Projects' },
-  { id: 'more-projects', label: 'More Projects' },
-  { id: 'skills', label: 'Skills in Practice' },
-  { id: 'education', label: 'Education' },
-  { id: 'publications', label: 'Publications' },
-  { id: 'certifications', label: 'Certifications' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'home', label: 'Home', short: 'Home' },
+  { id: 'about', label: 'About', short: 'About' },
+  { id: 'experience', label: 'Experience', short: 'Experience' },
+  { id: 'featured-projects', label: 'Featured Projects', short: 'Featured' },
+  { id: 'more-projects', label: 'More Projects', short: 'More Work' },
+  { id: 'skills', label: 'Skills in Practice', short: 'Skills' },
+  { id: 'education', label: 'Education', short: 'Education' },
+  { id: 'publications', label: 'Publications', short: 'Publications' },
+  { id: 'certifications', label: 'Certifications', short: 'Certificates' },
+  { id: 'contact', label: 'Contact', short: 'Contact' },
 ];
 
 /**
