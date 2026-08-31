@@ -56,13 +56,14 @@ export const contact = {
 
 /**
  * Profile photo, served from `public/images/`.
+ * A transparent-background cutout (WebP with alpha), cropped to the subject, so
+ * the portrait sits directly on the page rather than inside a white box.
  * Set `available: false` to fall back to the initials monogram instead.
- * The source image is square; it is rendered as a circular portrait.
  */
 export const photo = {
-  path: '/images/sebin-sunny.jpg',
-  width: 1600,
-  height: 1600,
+  path: '/images/sebin-sunny.webp',
+  width: 1189,
+  height: 1200,
   available: true,
   alt: 'Sebin Sunny',
 };

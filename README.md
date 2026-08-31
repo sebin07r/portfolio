@@ -84,7 +84,8 @@ link. To fill one in:
 - **Resume** - drop the PDF at `public/resume/Sebin_Sunny_Resume.pdf`, then set
   `resume.available = true`. Until then every Download Resume control renders as
   a disabled "Resume coming soon" button.
-- **Profile photo** - the portrait at `public/images/sebin-sunny.jpg` is shown
+- **Profile photo** - the portrait at `public/images/sebin-sunny.webp` is a
+  transparent cutout (white studio background removed) and is shown
   as a circular, ring-outlined image in the hero. Replace that file (or point
   `photo.path` elsewhere and update `photo.width` / `photo.height`) to swap it.
   Set `photo.available = false` to fall back to the initials monogram.
